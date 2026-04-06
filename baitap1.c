@@ -4,8 +4,8 @@
 
 typedef struct File {
     char name[50];
-    float size;   // GB
-    long time;    // thời gian
+    float size;   
+    long time;    
 } File;
 
 typedef struct Node {
@@ -17,12 +17,10 @@ typedef struct List {
     Node* head;
 } List;
 
-// ===== KHỞI TẠO =====
 void init(List* L) {
     L->head = NULL;
 }
 
-// ===== TẠO NODE =====
 Node* createNode(File f) {
     Node* p = (Node*)malloc(sizeof(Node));
     p->data = f;
@@ -30,7 +28,6 @@ Node* createNode(File f) {
     return p;
 }
 
-// ===== CHÈN THEO THỜI GIAN =====
 void insertSorted(List* L, File f) {
     Node* p = createNode(f);
 
@@ -49,7 +46,6 @@ void insertSorted(List* L, File f) {
     cur->next = p;
 }
 
-// ===== NHẬP FILE =====
 File inputFile() {
     File f;
     printf("Nhap ten file: ");
@@ -64,7 +60,6 @@ File inputFile() {
     return f;
 }
 
-// ===== HIỂN THỊ =====
 void display(List L) {
     Node* p = L.head;
 
@@ -81,7 +76,6 @@ void display(List L) {
     }
 }
 
-// ===== TỔNG DUNG LƯỢNG =====
 float totalSize(List L) {
     float sum = 0;
     Node* p = L.head;
@@ -94,7 +88,6 @@ float totalSize(List L) {
     return sum;
 }
 
-// ===== TÌM FILE NHỎ NHẤT =====
 Node* findMinNode(List L) {
     Node* p = L.head;
     Node* min = p;
@@ -108,11 +101,8 @@ Node* findMinNode(List L) {
     return min;
 }
 
-// ===== XÓA NODE =====
 void deleteNode(List* L, Node* target) {
     if (L->head == NULL || target == NULL) return;
-
-    // xóa đầu
     if (L->head == target) {
         Node* tmp = L->head;
         L->head = L->head->next;
@@ -131,7 +121,6 @@ void deleteNode(List* L, Node* target) {
     }
 }
 
-// ===== XỬ LÝ USB 32GB =====
 void fitToUSB(List* L) {
     float sum = totalSize(*L);
 
@@ -152,7 +141,6 @@ void fitToUSB(List* L) {
     printf("Tong cuoi: %.2f GB\n", sum);
 }
 
-// ===== MENU =====
 void menu() {
     printf("\n===== MENU =====\n");
     printf("1. Them file\n");
@@ -163,7 +151,6 @@ void menu() {
     printf("Chon: ");
 }
 
-// ===== MAIN =====
 int main() {
     List L;
     init(&L);

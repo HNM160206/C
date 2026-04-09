@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Minh/Downloads/CTDLGT",
-      "program": "c:/Users/Minh/Downloads/CTDLGT/build/Debug/outDebug",
+      "cwd": "c:/Users/Minh/Documents/VIsual Studio Code/CTDLGT",
+      "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
